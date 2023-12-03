@@ -228,18 +228,6 @@
 				</ul>
 			</nav>
 		</div>
-		<div class="mt-20 flex items-center space-x-2">
-			<span class="relative flex shrink-0 overflow-hidden rounded-full h-9 w-9">
-				<span
-					class="flex h-full w-full items-center justify-center rounded-full bg-muted text-white"
-					>JP</span
-				>
-			</span>
-			<div class="grid gap-0.5 text-xs">
-				<div class="text-white font-medium">Username</div>
-				<div class="text-gray-500">example@acme.inc</div>
-			</div>
-		</div>
 	</aside>
 	<main class="flex-1 p-4 md:p-6 overflow-auto">
 		<div class="flex justify-between items-center mb-4">
