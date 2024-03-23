@@ -6,37 +6,37 @@ settings:
 
 devDependencies:
   '@sveltejs/vite-plugin-svelte':
-    specifier: ^3.0.1
+    specifier: 3.0.1
     version: 3.0.1(svelte@4.2.8)(vite@5.0.4)
   '@tsconfig/svelte':
-    specifier: ^5.0.2
+    specifier: 5.0.2
     version: 5.0.2
   autoprefixer:
-    specifier: ^10.4.16
+    specifier: 10.4.16
     version: 10.4.16(postcss@8.4.32)
   postcss:
-    specifier: ^8.4.32
+    specifier: 8.4.32
     version: 8.4.32
   postcss-load-config:
-    specifier: ^5.0.0
+    specifier: 5.0.0
     version: 5.0.0(postcss@8.4.32)
   svelte:
-    specifier: ^4.2.8
+    specifier: 4.2.8
     version: 4.2.8
   svelte-check:
-    specifier: ^3.6.2
+    specifier: 3.6.2
     version: 3.6.2(postcss-load-config@5.0.0)(postcss@8.4.32)(svelte@4.2.8)
   tailwindcss:
-    specifier: ^3.3.5
+    specifier: 3.3.5
     version: 3.3.5
   tslib:
-    specifier: ^2.6.2
+    specifier: 2.6.2
     version: 2.6.2
   typescript:
-    specifier: ^5.3.2
+    specifier: 5.3.2
     version: 5.3.2
   vite:
-    specifier: ^5.0.4
+    specifier: 5.0.4
     version: 5.0.4
 
 packages:
