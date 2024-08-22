@@ -9,30 +9,32 @@ use std::net::SocketAddr;
 use std::str::FromStr;
 use tokio::net::TcpListener;
 
-async fn hello(_: Request<hyper::body::Incoming>) -> Result<Response<Full<Bytes>>, Infallible> {
-    Ok(Response::new(Full::new(Bytes::from("Hello, World!"))))
+async fn handle_request(
+	request: Request<hyper::body::Incoming>,
+) -> Result<Response<Full<Bytes>>, Infallible> {
+	Ok(Response::new(Full::new(Bytes::from("Hello, World!"))))
 }
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    tracing_subscriber::fmt::init();
+	tracing_subscriber::fmt::init();
 
-    let addr = SocketAddr::from_str("[::]:3000").unwrap();
+	let addr = SocketAddr::from_str("[::]:3000").unwrap();
 
-    let listener = TcpListener::bind(addr).await?;
+	let listener = TcpListener::bind(addr).await?;
 
-    loop {
-        let (stream, _) = listener.accept().await?;
+	loop {
+		let (stream, _) = listener.accept().await?;
 
-        let io = TokioIo::new(stream);
+		let io = TokioIo::new(stream);
 
-        tokio::task::spawn(async move {
-            if let Err(err) = http1::Builder::new()
-                .serve_connection(io, service_fn(hello))
-                .await
-            {
-                eprintln!("Error serving connection: {:?}", err);
-            }
-        });
-    }
+		tokio::task::spawn(async move {
+			if let Err(err) = http1::Builder::new()
+				.serve_connection(io, service_fn(handle_request))
+				.await
+			{
+				eprintln!("Error serving connection: {:?}", err);
+			}
+		});
+	}
 }
